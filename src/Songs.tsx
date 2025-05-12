@@ -7,7 +7,7 @@ import Fa from "solid-fa";
 import { faHome, faRefresh, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { TrackResult } from "./schema";
 import { Motion, Presence } from "solid-motionone";
-import logo from "./assets/logo.png";
+import Logo from "./assets/logo.svg";
 
 // import { Button } from "~/components/ui/button"
 
@@ -99,16 +99,16 @@ function Songs() {
                 </Motion.div>
 
                 <div class="flex flex-grow flex-row items-center justify-center mx-auto">
-                    <img
-                        src={logo}
-                        alt="Logo"
-                        class="h-15 object-contain rounded-2xl sm:mr-5"
+                    <Logo
+                        fill="currentColor"
+                        class="h-15 w-20 sm:h-20 sm:w-30 overflow-hidden text-info rounded-2xl "
                     />
                     <h1 class="text-2xl md:text-4xl text-center font-[Awesome] mt-5 text-accent">
                         <span class="text-primary font-bold ">Sonic</span>Scan
                     </h1>
                 </div>
-                <div class="flex-shrink justify-self-end sm:mr-5">
+
+                <div class="flex-shrink justify-self-end mr-5">
                     <Motion.select
                         // initial={{ opacity: 0 }}
                         // animate={{ opacity: 1 }}

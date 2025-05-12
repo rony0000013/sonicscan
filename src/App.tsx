@@ -209,13 +209,6 @@ function App() {
         </Motion.div>
 
         <div class="flex flex-grow flex-row items-center justify-center mx-auto">
-          {
-            /* <img
-            src={logo}
-            alt="Logo"
-            class="h-15 object-contain rounded-2xl sm:mr-5"
-          /> */
-          }
           <Logo
             fill="currentColor"
             class="h-15 w-20 sm:h-20 sm:w-30 overflow-hidden text-info rounded-2xl "
@@ -225,7 +218,7 @@ function App() {
           </h1>
         </div>
 
-        <div class="flex-shrink justify-self-end sm:mr-5">
+        <div class="flex-shrink justify-self-end mr-5">
           <Motion.select
             // initial={{ opacity: 0 }}
             // animate={{ opacity: 1 }}
