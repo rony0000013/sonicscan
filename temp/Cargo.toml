@@ -1,0 +1,21 @@
+[package]
+name = "temp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+bincode = { version = "2.0.1", features = ["serde"] }
+kdtree = "0.7.0"
+rayon = "1.10.0"
+realfft = "3.4.0"
+serde = { version = "1.0.219", features = ["derive"] }
+sled = "0.34.7"
+symphonia = { version = "0.5.4", features = ["all-codecs", "all-formats"] }
+tokio = { version = "1.44.2", features = ["macros", "time", "rt-multi-thread", "fs"] }
+image = "0.25.6"
+hound = "3.5.1"
+serde_json = "1.0.140"
+dotenvy = "0.15.0"
+reqwest = { version = "0.12.15", default-features = false, features = ["json", "rustls-tls"] }
+redis = { version = "0.30.0", features = ["tokio-comp", "tokio-rustls-comp", "tls-rustls", "tls-rustls-webpki-roots", "connection-manager"] }
