@@ -47,6 +47,8 @@ This project uses the following dependencies:
     (8192, 20000),
 ]` based on the human ear's frequency response by this [blogpost](https://unison.audio/eq-frequency-chart/) and this [blogpost](https://www.gear4music.com/blog/audio-frequency-range/). 
 
+- For the bands I also tried to implement the Mel frequency scale as it is more accurate to human ear's frequency response but it didn't work out as expected and I haven't found any good implementation of it so I used the linear frequency scale with fixed band sizes.
+
 - Using the filtered STFT I computed the fingerprint using nearest neighbors of 5 peaks for each band and used the [kdtree](https://github.com/Geal/kdtree) crate and each of the fingerprint I computed the hash using the tuple values of the frequency and time and stored it in a valkey database.
 
 - Then When I want to find the similar audio files I get the fingerprint of the audio file the functions and then search using the fingerprint as keys from the valkey database and then I sort the values based on the frequency, time difference and anchor count and then I return the top 3 respective songdata based on the filtered values with song_ids.

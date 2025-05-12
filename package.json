@@ -1,0 +1,44 @@
+{
+  "name": "sonic-scan",
+  "version": "0.1.0",
+  "description": "A Music Fingerprinting and Identification App",
+  "authors": ["Rounak Sen <rony000013@gmail.com>"],
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "tauri": "tauri"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@kobalte/core": "^0.13.9",
+    "@solid-primitives/audio": "^1.4.0",
+    "@solidjs/router": "^0.15.3",
+    "@tailwindcss/vite": "^4.1.4",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "extendable-media-recorder": "^9.2.23",
+    "extendable-media-recorder-wav-encoder": "^7.0.127",
+    "motion": "^12.9.2",
+    "solid-fa": "^0.2.0",
+    "solid-js": "^1.9.3",
+    "solid-motionone": "^1.0.4",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^4.1.4",
+    "tailwindcss-animate": "^1.0.7",
+    "theme-change": "^2.5.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "daisyui": "^5.0.27",
+    "typescript": "5.8.3",
+    "vite": "6.3.2",
+    "vite-plugin-solid": "^2.11.0",
+    "vite-plugin-solid-svg": "^0.8.1"
+  }
+}
