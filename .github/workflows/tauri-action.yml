@@ -9,6 +9,12 @@ on:
 
 jobs:
   publish-tauri:
+    env:
+      REDIS_URI: ${{ secrets.REDIS_URI }}
+      MUSIC_FINDER_API_URL: ${{ secrets.MUSIC_FINDER_API_URL }}
+      JIOSAAVAN_API_URL: ${{ secrets.JIOSAAVAN_API_URL }}
+      MUSIC_DOWNLOADER_API_URL: ${{ secrets.MUSIC_DOWNLOADER_API_URL }}
+      
     permissions:
       contents: write
     strategy:
