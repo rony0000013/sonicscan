@@ -4,7 +4,7 @@ use serde_json::{Value, json};
 use crate::schema::{TrackResult, TrackList};
 
 pub async fn find_jiosaavn_music(client: Client, url: &str) -> Result<Vec<u8>> {
-    let jiosaavn_api_url = std::env::var("JIOSAAVAN_API_URL")?;
+    let jiosaavn_api_url = env!("JIOSAAVAN_API_URL");
     let res = client
         .get(format!("{}/api/songs", jiosaavn_api_url))
         .query(&[("link", url)])
@@ -35,7 +35,7 @@ pub async fn download_jiosaavn_music(client: Client, val: TrackResult) -> Result
 }
 
 pub async fn find_spotify_music(client: Client, url: &str) -> Result<Vec<TrackResult>> {
-    let music_finder_api_url = std::env::var("MUSIC_FINDER_API_URL")?;
+    let music_finder_api_url = env!("MUSIC_FINDER_API_URL");
     let res = client
         .get(format!("{}/spotify", music_finder_api_url))
         .json(&json!({"url": url}))
@@ -47,7 +47,7 @@ pub async fn find_spotify_music(client: Client, url: &str) -> Result<Vec<TrackRe
 }
 
 pub async fn find_youtube_music(client: Client, url: &str) -> Result<Vec<TrackResult>> {
-    let music_finder_api_url = std::env::var("MUSIC_FINDER_API_URL")?;
+    let music_finder_api_url = env!("MUSIC_FINDER_API_URL");
     let res = client
         .get(format!("{}/youtube", music_finder_api_url))
         .json(&json!({"url": url}))

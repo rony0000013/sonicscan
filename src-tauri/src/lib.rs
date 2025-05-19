@@ -23,9 +23,6 @@ struct AppState {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    // dotenvy::from_read(include_str!("../.env").as_bytes()).unwrap();
-    dotenvy::dotenv().expect("Failed to load .env file");
-
     let redis_client = Runtime::Tokio(TokioRuntime::new().unwrap())
         .block_on(connect_redis())
         .expect("Redis Connection Error");

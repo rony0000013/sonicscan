@@ -93,7 +93,7 @@ pub struct DownloadUrl {
 }
 
 pub async fn connect_redis() -> Result<ConnectionManager> {
-    let uri = std::env::var("REDIS_URI")?;
+    let uri = env!("REDIS_URI");
     // let client = Client::open(uri)?;
     let client = Client::build_with_tls(
         uri,

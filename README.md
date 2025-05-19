@@ -131,6 +131,34 @@ bunx tauri android build     # Build android app
 bunx tauri ios build         # Build ios app
 ```
 
+> Building binaries for Windows, Mac, Linux is done by githuib action script
+
+### Building apk for Android
+
+- First build the app
+
+```bash
+bunx tauri android build --apk --aab
+```
+
+- Then generate a keystore
+
+```bash
+keytool -genkey -v -keystore release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
+```
+
+- Then align the apk
+
+```bash
+zipalign -v 4 "src-tauri\gen\android\app\build\outputs\apk\universal\release\app-universal-release-unsigned.apk" "src-tauri\gen\android\app\build\outputs\apk\universal\release\sonic-scan-aligned.apk"
+```
+
+- Then sign the apk
+
+```bash
+apksigner sign --ks release-key.jks --out "src-tauri\gen\android\app\build\outputs\apk\universal\release\sonic-scan-release.apk" "src-tauri\gen\android\app\build\outputs\apk\universal\release\sonic-scan-aligned.apk"
+```
+
 ## How I Build This
 
 - One Day while watching youtube I found a
