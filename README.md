@@ -2,6 +2,8 @@
 
 A Music Fingerprinting and Identification App
 
+> Use: Download the app for Windows, Linux, Mac, Web, Android from [Releases](https://github.com/rony0000013/sonicscan/releases)
+
 ## Features
 
 - 🪙 ABSOLUTELY FREE
