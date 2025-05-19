@@ -4,7 +4,6 @@ use reqwest::Client;
 use rspotify::{ClientCredsSpotify, Credentials, model::idtypes::TrackId, prelude::BaseClient};
 use serde::Deserialize;
 use serde_json::json;
-use std::env;
 use http::Method;
 use vercel_runtime::{
     Body, Error, Request, RequestPayloadExt, Response, ServiceBuilder, StatusCode,
@@ -49,15 +48,9 @@ pub async fn get_spotify_song(req: Request) -> Result<Response<Body>, Error> {
         .build()
         .map_err(|e| e.to_string())?;
 
-    let jiosavan_url = env::var("JIOSAVAN_URL")
-        .expect("JIOSAVAN_URL not found")
-        .to_string();
-    let spotify_client_id = env::var("SPOTIFY_CLIENT_ID")
-        .expect("SPOTIFY_CLIENT_ID not found")
-        .to_string();
-    let spotify_client_secret = env::var("SPOTIFY_CLIENT_SECRET")
-        .expect("SPOTIFY_CLIENT_SECRET not found")
-        .to_string();
+    let jiosavan_url = env!("JIOSAVAN_URL");
+    let spotify_client_id = env!("SPOTIFY_CLIENT_ID");
+    let spotify_client_secret = env!("SPOTIFY_CLIENT_SECRET");
 
     let creds = Credentials::new(spotify_client_id.as_str(), spotify_client_secret.as_str());
     tracing::info!("Credentials: {:?}", creds);

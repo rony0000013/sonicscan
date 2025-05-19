@@ -12,7 +12,7 @@ use vercel_runtime::{
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    dotenvy::dotenv().ok();
+    // dotenvy::dotenv().ok();
     tracing_subscriber::fmt()
         .with_max_level(tracing::Level::DEBUG)
         .with_target(false)
@@ -48,15 +48,9 @@ pub async fn get_youtube_song(req: Request) -> Result<Response<Body>, Error> {
         .build()
         .map_err(|e| e.to_string())?;
 
-    let jiosavan_url = env::var("JIOSAVAN_URL")
-        .expect("JIOSAVAN_URL not found")
-        .to_string();
-    let youtube_api_key = env::var("YOUTUBE_API_KEY")
-        .expect("YOUTUBE_API_KEY not found")
-        .to_string();
-    let youtube_api_url = env::var("YOUTUBE_API_URL")
-        .expect("YOUTUBE_API_URL not found")
-        .to_string();
+    let jiosavan_url = env!("JIOSAVAN_URL");
+    let youtube_api_key = env!("YOUTUBE_API_KEY");
+    let youtube_api_url = env!("YOUTUBE_API_URL");
     let id = regex
         .captures(url.as_str())
         .and_then(|caps| caps.get(1))
